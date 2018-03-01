@@ -20,19 +20,35 @@ var config = {
   });
 $(document).ready(function(){
 
+    $(".junebug").click(function(){
+        if (isClicked===false){
+            isClicked=true;
+        }else {
+            isClicked=false;
+        }
+    })
+
     $(".plusDiaper").on("click",function(){
-        count++;
-        firebase.database().ref().set({
-            DiaperCount:count
-          });
+        if (isClicked===true){
+            count++;
+            firebase.database().ref().set({
+                DiaperCount:count
+            });
+        } else {
+            alert("you're not authorized to update the count buckaroo.");
+        }
        
     });  
 
     $(".minusDiaper").on("click",function(){
-        count--;
-        firebase.database().ref().set({
-            DiaperCount:count
-          });
+        if (isClicked===true){
+            count--;
+            firebase.database().ref().set({
+                DiaperCount:count
+            });
+        } else {
+            alert("you're not authorized to update the count buckaroo.");
+        }
        
     });  
 
