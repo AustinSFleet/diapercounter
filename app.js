@@ -1,3 +1,4 @@
+// Diaper counting code
 var config = {
     apiKey: "AIzaSyCoqr_hE8PriTvoWww29C1XGihLYNXsveQ",
     authDomain: "diapercounter-658d5.firebaseapp.com",
@@ -10,14 +11,25 @@ var config = {
 
   var count=0;
 
+  var isClicked=false;
+
   firebase.database().ref().on("value",function(snapshot){
     count=snapshot.val().DiaperCount;
       $(".diaperCount").html(count);
       console.log(count);
   });
 $(document).ready(function(){
-    $(".diaper").on("click",function(){
+
+    $(".plusDiaper").on("click",function(){
         count++;
+        firebase.database().ref().set({
+            DiaperCount:count
+          });
+       
+    });  
+
+    $(".minusDiaper").on("click",function(){
+        count--;
         firebase.database().ref().set({
             DiaperCount:count
           });
@@ -26,6 +38,7 @@ $(document).ready(function(){
 
 
 })
+
 
 
   

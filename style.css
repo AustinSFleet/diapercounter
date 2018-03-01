@@ -1,0 +1,26 @@
+body {
+    font-family: 'Slabo 27px', serif;
+    background-color: rgb(55, 55, 100);
+    color:white;
+}
+
+.plusDiaper, .minusDiaper {
+    font-size: 45px;
+    width:100%;
+    background-color:rgb(93, 93, 145);
+    padding-left: 15px;
+}
+
+.counter {
+    font-size: 75px;
+}
+
+.junebug {
+    margin-left: 37%;
+    width: 25%;
+    height: auto;
+}
+
+.quote {
+    font-size: 30px;
+}
